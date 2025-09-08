@@ -12,8 +12,7 @@ _Hello! I am Christine Wu (she/her). I'm a junior studying 6-3._
 
 Some fun facts about me:
 
-1. I like to crochet. I tend to crochet amigurumis, which are small stuffed animals. Here are some bees that I crocheted before!
-<img src="assets/crochet.jpg" width="300">
+1. I like to crochet. I tend to crochet amigurumis, which are small stuffed animals. Here are some bees that I crocheted before! <img src="assets/crochet.jpg" width="300">
 2. I love to bake. I've tried baking cakes, macarons, brownies, cookies, and Chinese buns!
 3. Too much chocolate gives me a headache.
 4. My favorite cartoon character is [Miffy](https://www.miffy.com/) >.<

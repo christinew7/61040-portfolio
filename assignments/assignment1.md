@@ -3,7 +3,7 @@
 ## Domains
 1. Crocheting: One of my favorite hobbies is crocheting. Sometimes, I search for patterns to follow online; othertimes, projects are suggested on my YouTube or Instagram page.
 
-**2. Study breaks: My living group likes to host study breaks. It gives us an opportunity to socialize because we might not always be in the lounges at the same time or are on campus doing work instead. However, it can be hard to coordinate these events and know what to do.**
+2. Baking and Cooking: finding, saving, organizing recipes. I enjoy baking and cooking, both for myself and for my friends.
 
 3. Learning a new language: I'm taking Chinese classes at MIT because I want to communicate better in Mandarin. Currently, I know how to speak Cantonese, and I'm not strong with Mandarin. It would be helpful to know Mandarin to speak to family and when I travel to Mandarin-speaking areas around the world.
 
@@ -11,7 +11,7 @@
 
 5. Food exploration: find good places to eat with a group of people that matches all of their cuisines and budget
 
-**6. Baking and Cooking: finding, saving, organizing recipes**
+6. Study breaks: coordinate when to hold study breaks with a community and brainstorm ideas
 
 7. Google Calendar automations: automatically create deadlines/calendar events from Canvas, Piazza, PDFs (syllabi)
 
@@ -62,10 +62,9 @@
 - Nutritionists/Dietitions: professionals that guide meal planning and dietary choices. They could use organized recipes to help clients plan meals and easily share the ones they enjoy.
 
 **Learning a New Language: Vocabulary Retention**
-- Student: user that engages with the app and actively learns the vocabulary.
-- Teacher: anyone that introduces a new vocabulary word
-- Peer: people who would share and collaborate with the set
-**work on this**
+- Student: user that engages with the app and actively learns the vocabulary. They are directly affected because they are learning new vocabulary.
+- Teacher: anyone that introduces a new vocabulary word. Teachers can save time on helping students retain vocabulary in the classroom with these retention tools.
+- Peer: people who would share and collaborate with the set. Peers can offer more vocabulary and sentence examples. By teaching/mentoring each other, peers also have the opportunity to reinforce their own learning.
 
 ## Evidence
 
@@ -84,7 +83,7 @@
 
 **Baking and Cooking: Organizing Recipes**
 1. [myrecipes is a website that searches, saves, and organizes recipes](https://www.myrecipes.com/): myrecipes helps with recipes that exist on their database, but users can't import their own recipes.
-2. [Deglaze is an app for recipe management that can import recipes from other apps, like Instagram and TikTok]: Previously, this app was very helpful, but after they introduced a Paid Pro version, importing recipes are severely restricted and doesn't help to create a true consolidated online cookbook.
+2. [Deglaze is an app for recipe management that can import recipes from other apps, like Instagram and TikTok](https://appshunter.io/ios/app/6443578246/reviews): Previously, this app was very helpful, but after they introduced a Paid Pro version, importing recipes are severely restricted and doesn't help to create a true consolidated online cookbook.
 3. [Some people prefer online cookbooks for easy access, while others still prefer physical recipes](https://www.cookingbites.com/threads/old-fashioned-cookbooks-vs-online-versions.468/): A forum shows users expressing interest in both online cookbooks for convenience, and physical copies are only preferred because the cooks are old-fashioned.
 4. [People save online recipes by taking screenshots and keeping it in a photo album, notes app, or Pinterest](https://www.reddit.com/r/budgetcooking/comments/1b89f8i/when_you_find_a_good_recipe_from_either_social/): In a forum asking where people save online recipes, users find it convenient to just take a photo and paste it into their favorite "database" (album, Google drive, notes app, Pinterest)
 5. [RecipeSage is a recipe keeper app](https://recipesage.com/#/welcome): RecipeSage can take in any web URL, but users can't add in their own custom recipes.
@@ -99,9 +98,29 @@
 2. [Digital tools incorporating spaced repetition improves vocabulary retention by 40%](https://gianfrancoconti.com/2025/04/12/ten-essential-research-findings-about-vocabulary-instruction-that-every-language-teacher-should-know/): Digital tools can especially be helpful when on-the-go because it is easily accessed and supports consistent practice.
 3. [Quizlet is a common flashcards program for language learners for its interactivity and collaboration](https://blogs.ncl.ac.uk/slewis3/reviews/62-2/): I've personally used Quizlet often and found it useful when studying common topics and large sets. However, there is too much friction if I just wanted to add one vocabulary word as I was learning a language (there were too many steps)
 4. [It's easier to retain vocabulary through flashcards](https://www.reddit.com/r/languagelearning/comments/14q9rmv/comment/jqm5hax/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button): A Redditor commented that they prefer using flashcards to reinforce and retain new vocabulary.
-5. [60.1% of respondents prefer digital over paper flascards due to their convenience and ease of access](https://dailybruin.com/2022/05/09/researchers-study-efficacy-of-digital-flashcards-among-college-students): In a UCLA study, more students preferred using digital flashcards to learn. 
-6. []():
-7. []():
-8. []():
-9. []():
-10. []():
+5. [60.1% of respondents prefer digital over paper flascards due to their convenience and ease of access](https://dailybruin.com/2022/05/09/researchers-study-efficacy-of-digital-flashcards-among-college-students): In a UCLA study, more students preferred using digital flashcards to learn.
+6. [Flashcards are particularly helpful for ESL when combined with spaced repetition and practice in a gamified setting](https://medcraveonline.com/AHOAJ/retrieval-repetition-and-retention-unveilingvocabulary-acquisition-strategies-for-esl-learners.html): A study highlights the flashcards continue to be a powerful and useful tool for English learners.
+7. [SuperMemo is a powerful tool with a strong space repetition algorithm using flashcards](https://www.reddit.com/r/Anki/comments/vbrgn9/comment/icdky9i/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button): A redditor shared that SuperMemo is useful, but there is no mobile app for it, only available on Windows, and no easy sync between devices.
+8. [User-generated flashcards show greater improvement in learning than pre-made flashcards](https://journals.sagepub.com/doi/full/10.1111/j.1467-9280.1993.tb00571.x): A 9 year study shows that learners get the most benefit with flashcards when they create their own, since this is active learning.
+9. [Flashcards are not necessary; they are loved by some and avoided by others](https://www.reddit.com/r/languagelearning/comments/w94260/are_flash_cards_necessary/): In a Reddit post, some users say flashcards are effective, while others prefer more gamified apps.
+10. [Sentence cards are generally better than word cards when learning new languages](https://www.reddit.com/r/languagelearning/comments/1aqba8h/comment/kqbu6wh/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button): Practicing with sentence cards help with vocabulary AND grammar, but word cards don't have that same context.
+
+## Features
+
+**Crocheting: Pattern Reader**
+
+1. Abbreviation Reference: There will be an inline explanation on what the abbreviation/term is that the crocheter can reference to in the pattern. The crocheter can access this by highlighting or clicking the term.
+2. US/UK Terminology Toggle: Since English is the primary language for crochet patterns, a simple toggle on the screen lets crocheters instantly switch between US and UK terms. This will reduce confusion and mistakes since crocheters don't have to mentally translate as they crochet.
+3. Row Tracker: Crocheters can mark off each completed row and highlight their current row in the pattern, dimming the rest of the pattern. They can also track their overall progress with a progress bar.
+
+**Baking and Cooking: Organizing Recipes**
+
+1. Recipe collector: Home cooks can add all their screenshot, web URLs, and custom recipes all in one place.
+2. Tag organization: Home cooks can organize their recipes further by categorizing them.
+3. Inline notes: Home cooks can add notes in a recipes, so they can record adjustments after attempting it, making future attempts more personalized.
+
+**Learning a New Language: Vocabulary Retention**
+
+1. Custom Deck Creation: Students can start creating a deck by adding premade flashcards or adding it on their own. For future edits, they can edit in two ways: add multiple cards at once for bulk updates or add individual cards quickly and return to practicing.
+2. Gamified Progress Tracking: There will be streaks and levels to encourage motivation and consistency to retain vocabulary words.
+3. Sentence Examples: There is a secondary button in each flashcard that offers a sentence example using the vocabulary word, highlighted. This helps learners understand how the word is used in context.

@@ -4,14 +4,14 @@
 
 1. The contexts are used in the NonceGeneration concept to ensure the strings are unique within the context/environment we're using. A context will end up being a domain in the URLShortening app; for example, tinyURL would be a context.
 2. The NonceGeneration must store sets of used strings to adhere to its purpose -- make sure a new string doesn't conflict with an old string in the provided context. Each string in the set of used strings in the specification maps a counter number in the implementation; the counter is the size of the used string set.
-3. One advantage of this scheme is that the short URL suffix is easier to type and less prone to typos. However, there are more privacy concerns because anyone can access it. For example, if the short link links to an editable Google Doc and someone else brute forces the short link, they will have full capabiltiy to do anything. I would modify the NonceGeneration concept to reference the database of common dictionary words when generating a nonce.
+3. One advantage of this scheme is that the short URL suffix is easier to type and less prone to typos. However, there are more privacy concerns because anyone can access it. For example, if the short link links to an editable Google Doc and someone else brute forces the short link, they will have full capability to do anything -- they could even delete the entire document. I would modify the NonceGeneration concept to reference a database of common dictionary words when generating a nonce.
 
 ## Synchronization Questions
 
 1. The generate sync only includes the shortUrlBase argument because it only needs the base as the context to generate a unique nonce. Generating a nonce isn't dependent on the targetURL. On the other hand, to register a shortened URL, it needs the targetURL to associate the generated nonce with.
 2. This convention isn't used in every case because some argument names are more general with the variable name being more specific, which allows for the concept to be reused.
-3. The setExpiry sync only depends on register to fully complete (which implicitly depends on request and generate to fully complete). It also only needs the information provided from register, and not request (the targetUrl and shortUrlBase) aren't needed to set an expiration for the shortUrl.
-4. I would merge the generate and register synchronization. The shortUrlBase doesn't need to be a variable anymore because it's fixed.
+3. The setExpiry sync only depends on register to fully complete (which implicitly depends on request and generate to fully complete). It also only needs the information provided from register, and not request (the targetUrl and shortUrlBase aren't needed to set an expiration for the shortUrl).
+4. I would merge the generate and register synchronization. The shortUrlBase doesn't need to be a variable anymore because it's fixed. <br>
    **sync** register <br>
    **when** <br>
    &nbsp;Request.shortenUrl (targetUrl) <br>
@@ -24,9 +24,9 @@
 
 ## Extending the design
 
-1.  **concept**AnalyticsTracking [User, Resource] <br>
-    **purpose**view how many times a resource created by a user has been used <br>
-    **principle**a user registers their resource and can get a report of how many times it was accessed <br>
+1.  **concept** AnalyticsTracking [User, Resource] <br>
+    **purpose** view how many times a resource created by a user has been used <br>
+    **principle** a user registers their resource and can get a report of how many times it was accessed <br>
     **state** <br>
     a set of Profiles with <br>
     &nbsp; a user User <br>
@@ -42,8 +42,8 @@
     &nbsp;&nbsp;**requires** this resource is associated with a ResourceCount and Profile <br>
     &nbsp;&nbsp;**effects** increments this resource's accessCount by 1 <br>
     getResourceCount(user: User, resource: Resource): (count: Number) <br>
-    &nbsp;&nbsp;**requires**this resource is in this user's Profile <br>
-    &nbsp;&nbsp;**effects**returns this resource's accessCount <br>
+    &nbsp;&nbsp;**requires** this resource is in this user's Profile <br>
+    &nbsp;&nbsp;**effects** returns this resource's accessCount <br>
     removeResource(resource: Resource) <br>
     &nbsp;&nbsp;**requires** this resource exists in a Profile
     &nbsp;&nbsp;**effects** removes this resource from the set of ResourceCounts
@@ -54,7 +54,6 @@
     **sync** incrementAccess <br>
     **when** URLShortening.lookup(shortUrl)<br>
     **then** AnalyticsTracking.addCount(shortUrl: Resource) <br>
-    <br>
     **sync** report <br>
     **when** Request.getResourceCount(user, shortUrl: Resource)<br>
     **then** AnalyticsTracking.getResourceCount(user, shortUrl: Resource): (count: Number) <br>

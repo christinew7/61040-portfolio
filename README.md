@@ -22,3 +22,4 @@ Some fun facts about me:
 [Link to Assignment 1](assignments/assignment1.md) <br>
 [Link to Problem Set 1](assignments/pset1.md) <br>
 [Link to Problem Set 2](assignments/pset2.md) <br>
+[Link to Assignment 2](assignments/assignment2.md) <br>

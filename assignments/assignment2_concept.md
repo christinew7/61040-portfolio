@@ -16,9 +16,24 @@ user auth
 - basic concepts should be whatever adds to features?
 - user and user auth ? -->
 
+**concept** PasswordAuthentication <br>
+**purpose** limit access to known users <br>
+**principle** after a user registers with a username and password, <br> they can authenticate with that same username and password <br> and be treated each time as the same user<br>
+**state** <br>
+a set of Users with <br>
+&nbsp;&nbsp; a username String <br>
+&nbsp;&nbsp; a password String <br>
+**actions** <br>
+register (username: String, password: String): (user: User) <br>
+&nbsp;&nbsp;**requires** username doesn't already exist <br>
+&nbsp;&nbsp;**effects** creates a new User with this username and password<br>
+authenticate (username: String, password: String): (user: User) <br>
+&nbsp;&nbsp;**requires** username exists in the Users set, input password matches username's preexisting password <br>
+&nbsp;&nbsp;**effects** User is successfully authenticated and returns the User
+
 **concept** Dictionary <br>
-**purpose** provide a translation from one language to another
-**principle** when a user requests the translation of a term, the dictionary will return the appropriate term in their preferred langauge
+**purpose** provide a translation between two specific languages <br>
+**principle** when a user requests the translation of a term, the dictionary will return the appropriate term in the other language<br>
 **state** <br>
 a set of Terms with <br>
 &nbsp; a language1 String <br>
@@ -30,68 +45,41 @@ addTerm(language1: String, language2: String) <br>
 deleteTerm(language1: String, language2: String) <br>
 &nbsp;&nbsp;**requires** this language1 and this language2 exist in the set of Terms<br>
 &nbsp;&nbsp;**effect** deletes this language1 and this language2 from the set of Terms <br>
-translateTerm(language1: String): (language2: String=) <br>
+translateTerm(language1: String): (language2: String) <br>
 &nbsp;&nbsp;**requires** this language1 exists in the set of Terms<br>
 &nbsp;&nbsp;**effect** returns this language2 associated with this language1<br>
 
-**concept** Abbreviations <br>
-**purpose** provide the meaning of an abbreviation <br>
-**principle** a user is confused on what an abbreviation is short for, so they highlight it to get the full phrase it represents <br>
+**concept** Library [User] <br>
+**purpose** maps users to items in their library **probably need to fix to include the row tracking** <br>
+**principle** a user adds a File to their Library, which tracks their progress as they go through the file <br>
 **state** <br>
-a set of AbbreviationMappings with <br>
-&nbsp; an abbreviation String <br>
-&nbsp; a USTerm String <br>
+a set of Libraries with <br>
+&nbsp; an owner User <br>
+&nbsp; a set of Files <br>
+a set of Files with <br>
+&nbsp; an items List\<String\> User <br>
+&nbsp; a dateAdded DateTime <br>
+
 **actions** <br>
-addAbbreviation(abbreviation: String, USTerm: String) <br>
-&nbsp;&nbsp;**requires** this abbreviation isn't already in the AbbreviationMapping<br>
-&nbsp;&nbsp;**effect** adds this USTerm to this abbreviation in the AbbreviationMappings <br>
-modifyAbbreviation(oldAbbreviation: String, newAbbreviation: String) <br>
-&nbsp;&nbsp;**requires** this oldAbbreviation exists in the AbbreviationMappings, this newAbbreviation does not exist in the AbbreviationMappings<br>
-&nbsp;&nbsp;**effect** changes this oldAbbreviation in the AbbreviationMappings to this newAbbreviation <br>
-deleteAbbreviation(abbreviation: String) <br>
-&nbsp;&nbsp;**requires** this abbreviation exists in the AbbreviationMapping<br>
-&nbsp;&nbsp;**effect** deletes this abbreviation from the AbbreviationMapping <br>
-findAbbreviation(abbreviation: String): (USTerm: String) <br>
-&nbsp;&nbsp;**requires** this abbreviation exists in the AbbreviationMapping<br>
-&nbsp;&nbsp;**effect** returns the USTerm associated with this abbreviation <br>
+create(owner: User): (library: Library) <br>
+&nbsp;&nbsp;**requires** this owner doesn't already have a library<br>
+&nbsp;&nbsp;**effect** creates a new library with this owner and an empty set of files <br>
+delete(owner: User): <br>
+&nbsp;&nbsp;**requires** this owner has a library<br>
+&nbsp;&nbsp;**effect** deletes this owner's library<br>
+addFile(owner: User, items: List\<String\>) <br>
+&nbsp;&nbsp;**requires** this owner has a library, this items doesn't exist in this owner's library of files<br>
+&nbsp;&nbsp;**effect** creates a file with this items and the DateTime it was added, adds this file to this owner's library<br>
+modifyFile(owner: User, file: File, items: List\<String\>) <br>
+&nbsp;&nbsp;**requires** this owner has a library, this file is in this owner's library <br>
+&nbsp;&nbsp;**effect** change this file's items to this items<br>
+deleteFile(owner: User, file: File) <br>
+&nbsp;&nbsp;**requires** this owner has a library, this file is in this owner's library<br>
+&nbsp;&nbsp;**effect** deletes this file from this owner's library<br>
+getAllFiles(owner: User): (files: Set\<File\>) <br>
+&nbsp;&nbsp;**requires** this owner has a library<br>
+&nbsp;&nbsp;**effect** returns all files in this owner's library<br>
 
-**concept** PatternLibrary <br>
-**purpose** stores all the patterns that have been uploaded <br>
-**principle** a user adds their pattern to the database and can view the pattern at any time **confused** <br>
-**state** <br>
-a set of Patterns with <br>
-&nbsp; a title String <br>
-&nbsp; a patternText String <br>
-&nbsp; a language String <br>
-**actions** <br>
-uploadPattern(title: String, patternText: String, language: String) <br>
-&nbsp;&nbsp;**requires** this title, this patternText, and this language doesn't already exist in the set of patterns<br>
-&nbsp;&nbsp;**effect** creates a new Pattern with this title, this patternText, and this language<br>
-getPattern(title: String): (patternText: String, language: String) <br>
-&nbsp;&nbsp;**requires** this title exists in the set of Patterns<br>
-&nbsp;&nbsp;**effect** returns the patternText and language associated with this title<br>
-
-<!-- getAllPatterns() : (patterns: Set\<Pattern\>) <br>
-&nbsp;&nbsp;**effect** returns all the patterns in the set<br> -->
-
-**PatternLibrary.getPattern(title: String): (patternText, language) , PatternLibrary.listPatterns(): (set of Patterns)**
-
-<!-- confused with my concept of togglelanguage -->
-
-**concept** ToggleLanguage[Pattern] <br>
-**purpose** translate a pattern to another language <br>
-**principle** a user has a primary language and translate their pattern in another language to their primary language <br>
-**state** <br>
-a set of TranslatedPatterns with <br>
-&nbsp; a pattern Pattern <br>
-&nbsp; a translatedPattern Pattern <br>
-**actions** <br>
-uploadPattern(title: String, patternText: String, language: String) <br>
-&nbsp;&nbsp;**requires** this title, this patternText, and this language doesn't already exist in the set of patterns<br>
-&nbsp;&nbsp;**effect** creates a new Pattern with this title, this patternText, and this language<br>
-
-<!-- not sure what it should be to actually translate everything because we need to translate the entire words?
- -->
 
 ## Synchronizations
 

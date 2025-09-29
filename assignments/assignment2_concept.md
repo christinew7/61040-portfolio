@@ -2,20 +2,6 @@
 
 ## Concept Specifications
 
-<!-- toggle language
-- purpose is to switch to language that the user is used to
-- principle; there is a default language and the user does not learn in that language, they hit the toggle button and it changes the language
-
-in-line abbreviation
-- purpose is to give more details to a vocabulary word
-
-
-user auth
-- saves language preferences
-- concept to save patterns - is this too much
-- basic concepts should be whatever adds to features?
-- user and user auth ? -->
-
 **concept** PasswordAuthentication <br>
 **purpose** limit access to known users <br>
 **principle** after a user registers with a username and password, <br> they can authenticate with that same username and password <br> and be treated each time as the same user<br>
@@ -33,7 +19,7 @@ authenticate (username: String, password: String): (user: User) <br>
 
 **concept** Dictionary <br>
 **purpose** provide a translation between two specific languages <br>
-**principle** when a user requests the translation of a term, the dictionary will return the appropriate term in the other language<br>
+**principle** the dictionary maintains a mapping of terms between two languages, <br> a user can request the translation of a term and the dictionary will return the appriopriate term in the other language <br>
 **state** <br>
 a set of Terms with <br>
 &nbsp; a language1 String <br>
@@ -50,8 +36,8 @@ translateTerm(language1: String): (language2: String) <br>
 &nbsp;&nbsp;**effect** returns this language2 associated with this language1<br>
 
 **concept** Library [User] <br>
-**purpose** maps users to items in their library **probably need to fix to include the row tracking** <br>
-**principle** a user adds a File to their Library, which tracks their progress as they go through the file <br>
+**purpose** manage collection of files for users <br>
+**principle** a user creates a library to store their files, <br> the user can add files to their library, <br> the user can retrieve any file in their library to view its contents, <br> and modify or delete the file as needed, <br> they can also delete the library if it's no longer needed<br>
 **state** <br>
 a set of Libraries with <br>
 &nbsp; an owner User <br>
@@ -80,13 +66,64 @@ getAllFiles(owner: User): (files: Set\<File\>) <br>
 &nbsp;&nbsp;**requires** this owner has a library<br>
 &nbsp;&nbsp;**effect** returns all files in this owner's library<br>
 
+**concept** FileTracker [User, File] <br>
+**purpose** track current position and enable navigation within files <br>
+**principle** a user can move through file items sequentially without losing their place, or skip to a file item <br> the user can control how progress is displayed <br>
+**state** <br>
+a set of TrackedFiles with <br>
+&nbsp; an owner User <br>
+&nbsp; a file File <br>
+&nbsp; a currentIndex Number <br>
+&nbsp; a maxIndex Number <br>
+&nbsp; a isVisible Flag
+
+**actions** <br>
+startTracking(owner: User, file: File): <br>
+&nbsp;&nbsp;**requires** this owner exists, this file exists, this owner and this file isn't already in the set of TrackedFiles <br>
+&nbsp;&nbsp;**effect** create a new TrackedFile with this owner and this file, currentIndex is initialized to 0, maxIndex is the length of the file's items, isVisible set to true<br>
+deleteTracking(owner: User, file: File): <br>
+&nbsp;&nbsp;**requires** this owner and this file is in the set of TrackedFiles <br>
+&nbsp;&nbsp;**effect** delete this TrackedFile <br>
+jumpTo(owner: User, file: File, index: Number): <br>
+&nbsp;&nbsp;**requires** this owner and this file exists in the TrackedFiles, this index is a valid index between 0 and the maxIndex <br>
+&nbsp;&nbsp;**effect** updates the currentIndex of the TrackedFile with this owner and this file to this index <br>
+next(owner: User, file: File) <br>
+&nbsp;&nbsp;**requires** this owner and this file exists in the TrackedFiles, the currentIndex of this TrackedFile is less than the maxIndex <br>
+&nbsp;&nbsp;**effect** increments the TrackedFile with this owner and this file by 1 <br>
+back(owner: User, file: File) <br>
+&nbsp;&nbsp;**requires** this owner and this file exists in the TrackedFiles, the currentIndex of this TrackedFile is greater than 0 <br>
+&nbsp;&nbsp;**effect** decrements the TrackedFile with this owner and this file by 1 <br>
+getCurrentItem(owner: User, file: File): (index: Number) <br>
+&nbsp;&nbsp;**requires** this owner and this file exists in the TrackedFiles <br>
+&nbsp;&nbsp;**effect** in the TrackedFile with this owner and this file, return the currentIndex <br>
+setVisibility(owner: User, file: File, visible: Flag) <br>
+&nbsp;&nbsp;**requires** this owner and this file exists in the TrackedFiles <br>
+&nbsp;&nbsp;**effect** in the TrackedFile with this owner and this file, set isVisible to this visible<br>
 
 ## Synchronizations
 
-**sync** a <br>
-**when** Request.highlight/click()<br>
-**then** Abbreviations.findAbbreviation(abbreviation: String): (USTerm: String) <br>
+**sync** createLibrary <br>
+**when** PasswordAuthentication.register(username: String, password: String)<br>
+**then** Library.create(owner: User) <br>
 
-**need a sync for changelanguage?**
+**sync** addFile <br>
+**when** Library.addFile(user, items: List\<Items\>)<br>
+**then** FileTracker.startTracking(user, file) <br>
+
+**sync** stopTrackingOnDeleteFile <br>
+**when** Library.deleteFile(user, file) <br>
+**then** FileTracker.deleteTracking(user, file) <br>
+
+**sync** stopTrackingOnDeleteLibrary <br>
+**when** Library.delete(user) <br>
+**where** file in FileTracker.TrackedFiles with owner = user <br>
+**then** FileTracker.deleteTracking(user, file) <br>
+
+**sync** translate <br>
+**when** Request.translate(page) <br>
+**where** word is in page <br>
+**then** Dictionary.translate(word) <br>
 
 ## Note
+
+The PasswordAuthentication concept helps with creating a user and instantiates the generic user type used in the Library and FileTracker concepts. The generic file type will be bound to the files added in the Library concept. The Dictionary concept will be used in my first two features: translate an abbreviation into the full phrase and translating between US and UK terminology. The Library concept manages each user's collection of crochet patterns, where each file repesents an individual crochet pattern. The FileTracking concept will be the core of the Row Tracking feature. When the `isVisible` flag is true, it will highlight the current step of the pattern (which is the currentIndex/item of the file).

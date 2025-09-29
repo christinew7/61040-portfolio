@@ -3,12 +3,9 @@
 ## Assignment 2: Functional Design
 
 ### TO-DOs
-- APPLICATION PITCH: need a memorable name
 - APPLICATION PITCH: need a better motivation
-- CONCEPT DESIGN: get all the concepts
-- CONCEPT DESIGN: get all the syncs
-- CONCEPT DESIGN: write brief note
-- UI SKETCHES
+- fix pitch ti be a oitch
+- UI SKETCHES: need a logout button?
 - USER JOURNEY
 
 

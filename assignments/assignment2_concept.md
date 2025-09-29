@@ -11,15 +11,15 @@ a set of Users with <br>
 &nbsp;&nbsp; a password String <br>
 **actions** <br>
 register (username: String, password: String): (user: User) <br>
-&nbsp;&nbsp;**requires** username doesn't already exist <br>
-&nbsp;&nbsp;**effects** creates a new User with this username and password<br>
+&nbsp;&nbsp;**requires** this username doesn't already exist <br>
+&nbsp;&nbsp;**effects** creates a new User with this username and this password<br>
 authenticate (username: String, password: String): (user: User) <br>
-&nbsp;&nbsp;**requires** username exists in the Users set, input password matches username's preexisting password <br>
+&nbsp;&nbsp;**requires** this username exists in the Users set, input password matches username's preexisting password <br>
 &nbsp;&nbsp;**effects** User is successfully authenticated and returns the User
 
 **concept** Dictionary <br>
 **purpose** provide a translation between two specific languages <br>
-**principle** the dictionary maintains a mapping of terms between two languages, <br> a user can request the translation of a term and the dictionary will return the appriopriate term in the other language <br>
+**principle** the dictionary maintains a mapping of terms between two languages, <br> a user can request the translation of a term and the dictionary will provide the appriopriate term in the other language <br>
 **state** <br>
 a set of Terms with <br>
 &nbsp; a language1 String <br>

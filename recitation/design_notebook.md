@@ -3,11 +3,6 @@
 ## Assignment 2: Functional Design
 
 ### TO-DOs
-- APPLICATION PITCH: need a better motivation
-- fix pitch ti be a oitch
-- UI SKETCHES: need a logout button?
-- USER JOURNEY
-
 
 ### Comments
 - still have some confusion on concepts
@@ -15,9 +10,6 @@
 
 
 ### Questions
-- do i need a concept for when the user clicks on the term to translate / highlight to explain the abbrevation or can that just be a Request situation
-- confused with my concept of togglelanguage
-
 
 <!-- archive: -->
 <!-- toggle language

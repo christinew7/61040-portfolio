@@ -2,14 +2,9 @@
 
 ## Assignment 2: Functional Design
 
-### TO-DOs
-
 ### Comments
-- still have some confusion on concepts
+<!-- - still have some confusion on concepts -->
 - the concepts should primarily be helping the features and being able to save patterns doesn't help with the core problem of reading the patterns, so that probably won't be useful
-
-
-### Questions
 
 <!-- archive: -->
 <!-- toggle language
@@ -25,3 +20,16 @@ user auth
 - concept to save patterns - is this too much
 - basic concepts should be whatever adds to features?
 - user and user auth ? -->
+
+## Assignment 3: AI Augmented Concept
+
+### TODOs
+- fix repo name and move assignment 3 markdown into readme of the new repo
+- explain why my concept can be llm based
+- maybe add an optional preferred start index
+- maybe add a getVisibility flag
+
+### Comments
+- LLM best used for file tracking and smart determining the start index for the pattern; not really needed for the implementation of the concept for Dictionary or Library (that just holds all the files for storage)
+
+### Questions

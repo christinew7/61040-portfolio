@@ -8,6 +8,7 @@ This will be your portfolio repository. Use this as a [template repository](http
 # About Me
 
 _Hello! I am Christine Wu (she/her). I'm a junior studying 6-3._
+
 <!-- I'm involved in [MIT's Lion Dance](https://liondance.mit.edu/) team._ -->
 
 Some fun facts about me:
@@ -23,3 +24,4 @@ Some fun facts about me:
 [Link to Problem Set 1](assignments/pset1.md) <br>
 [Link to Problem Set 2](assignments/pset2.md) <br>
 [Link to Assignment 2](assignments/assignment2.md) <br>
+[Link to Assignment 3](https://github.com/christinew7/61040-assignment3) <br>

@@ -43,7 +43,7 @@ a set of Libraries with <br>
 &nbsp; an owner User <br>
 &nbsp; a set of Files <br>
 a set of Files with <br>
-&nbsp; an items List\<String\> User <br>
+&nbsp; an items List\<String\> <br>
 &nbsp; a dateAdded DateTime <br>
 
 **actions** <br>

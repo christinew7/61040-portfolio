@@ -33,3 +33,8 @@ user auth
 - LLM best used for file tracking and smart determining the start index for the pattern; not really needed for the implementation of the concept for Dictionary or Library (that just holds all the files for storage)
 
 ### Questions
+
+## Assignment 4
+
+### Questions:
+- Do I need to change my concept specs if I'm returning the id
